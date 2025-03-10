@@ -42,6 +42,7 @@ export default function RootLayout({
           {children}
           <footer className="bg-yellow-400 text-black p-4 text-center fixed bottom-0 w-full">
             <ul className="flex justify-center space-x-4">
+              <li><a href="https://bostondodgeballleague.buyproforma.com/">Merch</a></li>
               <li><a href="https://www.instagram.com/boston.dodgeball.league/">Instagram</a></li>
               <li><a href="https://www.youtube.com/@BostonDodgeballLeague">YouTube</a></li>
               <li><a href="https://www.facebook.com/profile.php?id=61558561226354">Facebook</a></li>
