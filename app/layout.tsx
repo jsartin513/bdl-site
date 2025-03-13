@@ -30,12 +30,12 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <header className="bg-blue-500 text-white p-4 text-center">
-            <h1>Boston Dodgeball League</h1>
+            <h1 className="text-4xl">Boston Dodgeball League</h1>
             <nav>
-              <ul className="flex justify-center space-x-4">
-                <li><Link href="/">About</Link></li>
-                <li><Link href="/events">Events</Link></li>
-                <li><Link href="/rules">Rules and Player Forms</Link></li>
+              <ul className="flex justify-center space-x-8">
+              <li className="text-lg"><Link href="/">About</Link></li>
+              <li className="text-lg"><Link href="/events">Events</Link></li>
+              <li className="text-lg"><Link href="/rules">Rules</Link></li>
               </ul>
             </nav>
           </header>
