@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div>
+        <div className="min-h-screen flex flex-col">
           <header className="bg-blue-500 text-white p-4 text-center">
             <h1>Boston Dodgeball League</h1>
             <nav>
@@ -39,7 +39,9 @@ export default function RootLayout({
               </ul>
             </nav>
           </header>
-          {children}
+          <main className="flex-grow mb-16">
+            {children}
+          </main>
           <footer className="bg-yellow-400 text-black p-4 text-center fixed bottom-0 w-full">
             <ul className="flex justify-center space-x-4">
               <li><a href="https://bostondodgeballleague.buyproforma.com/">Merch</a></li>
