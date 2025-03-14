@@ -11,11 +11,11 @@ export default function TabbedLayout({ tabs }: TabbedLayoutProps) {
 
   return (
     <div>
-      <div className="mb-8">
+      <div className="mb-8 flex justify-center">
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`text-2xl font-bold mb-4 mr-4 cursor-pointer ${activeTab === index ? 'font-bold' : ''}`}
+            className={`text-2xl font-bold mb-4 mx-4 px-4 py-2 cursor-pointer border-b-2 ${activeTab === index ? 'border-blue-500' : 'border-transparent'}`}
             onClick={() => setActiveTab(index)}
           >
             {tab.label}

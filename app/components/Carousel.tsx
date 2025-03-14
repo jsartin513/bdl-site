@@ -25,14 +25,16 @@ export default function Carousel({ items }: CarouselProps) {
   }, [currentIndex]);
 
   return (
-    <div className="carousel">
-      <div className="carousel-item mb-4">
-        <Image src={items[currentIndex].image} alt={items[currentIndex].description} width={500} height={300} />
-        <p className="mt-2">{items[currentIndex].description}</p>
+    <div className="carousel relative">
+      <div className="carousel-item mb-4 text-center">
+        <Image src={items[currentIndex].image} alt={items[currentIndex].description} width={500} height={300} className="mx-auto" />
+        <p className="mt-2 text-lg">{items[currentIndex].description}</p>
       </div>
-      <div className="flex justify-between w-1/4">
-        <button className="mr-4" onClick={handlePrev}>Previous</button>
-        <button onClick={handleNext}>Next</button>
+      <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
+        <button className="bg-gray-800 text-white px-4 py-2 rounded-l" onClick={handlePrev}>Previous</button>
+      </div>
+      <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+        <button className="bg-gray-800 text-white px-4 py-2 rounded-r" onClick={handleNext}>Next</button>
       </div>
     </div>
   );
