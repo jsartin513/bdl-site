@@ -4,8 +4,8 @@ import Image from 'next/image';
 
 export default function Events() {
   const upcomingEvents = [
-    { description: 'Weekly open gyms on Sunday nights from 6pm-9pm', image: '/images/march_open_gym_flyer.jpg' },
-    { description: 'First league on Wednesday nights from 7-9:30pm between April 16 and May 21', image: '/images/league_flyer.jpg', signUpLink: "https://docs.google.com/forms/d/e/1FAIpQLSc1EKlzHAb59oONb7bmF86pOOdRDF3Yc26pWDgWdDU-H2CONw/viewform?usp=sharing"},
+    { description: 'Weekly open gyms on Sunday nights from 6pm-9pm', image: '/images/april_open_gym_flyer.jpg' },
+    { description: 'First league on Wednesday nights from 7-9:30pm between April 16 and May 21', image: '/images/league_flyer.jpg'},
     { description: 'The Throw Down 4 (Nickelodeon Edition) on July 12, 2025', image: '/images/throw_down_4_flyer.jpg'},
   ];
 
@@ -27,9 +27,6 @@ export default function Events() {
                   <Image src={event.image} alt={event.description} width={500} height={300} />
                 </div>
                 <p className='mb-4 text-md font-bold text-center'>{event.description}</p>
-                {event.signUpLink &&
-                  <p className='mb-4 text-md font-bold text-center'><a href={event.signUpLink} className="text-blue-500 hover:underline text-center">Sign up</a></p>
-                }
               </div>
             ))}
           </div>
