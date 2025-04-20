@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link';
-import { FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa"; // Import icons
+import { FaInstagram, FaYoutube, FaFacebook, FaEnvelope } from "react-icons/fa"; // Import icons
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +61,12 @@ export default function RootLayout({
                 <FaFacebook className="text-2xl" aria-label="Facebook" />
                 <a href="https://www.facebook.com/profile.php?id=61558561226354" target="_blank" rel="noopener noreferrer" className="text-lg">
                   Facebook
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <FaEnvelope className="text-2xl" aria-label="Email" />
+                <a href="mailto:bostondodgeballleague@gmail.com" className="text-lg underline">
+                  Contact Us
                 </a>
               </li>
             </ul>
