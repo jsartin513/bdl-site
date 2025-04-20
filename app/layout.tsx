@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from 'next/link';
+import { FaInstagram, FaYoutube, FaFacebook, FaEnvelope } from "react-icons/fa"; // Import icons
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +34,9 @@ export default function RootLayout({
             <h1 className="text-4xl">Boston Dodgeball League</h1>
             <nav>
               <ul className="flex justify-center space-x-8">
-              <li className="text-lg"><Link href="/">About</Link></li>
-              <li className="text-lg"><Link href="/events">Events</Link></li>
-              <li className="text-lg"><Link href="/rules">Rules</Link></li>
+                <li className="text-lg"><Link href="/">About</Link></li>
+                <li className="text-lg"><Link href="/events">Events</Link></li>
+                <li className="text-lg"><Link href="/rules">Rules</Link></li>
               </ul>
             </nav>
           </header>
@@ -43,11 +44,31 @@ export default function RootLayout({
             {children}
           </main>
           <footer className="bg-yellow-400 text-black p-4 text-center fixed bottom-0 w-full">
-            <ul className="flex justify-center space-x-4">
-              <li><a href="https://bostondodgeballleague.buyproforma.com/">Merch</a></li>
-              <li><a href="https://www.instagram.com/boston.dodgeball.league/">Instagram</a></li>
-              <li><a href="https://www.youtube.com/@BostonDodgeballLeague">YouTube</a></li>
-              <li><a href="https://www.facebook.com/profile.php?id=61558561226354">Facebook</a></li>
+            <ul className="flex justify-center space-x-8">
+              <li className="flex items-center space-x-2">
+                <FaInstagram className="text-2xl" aria-label="Instagram" />
+                <a href="https://www.instagram.com/boston.dodgeball.league/" target="_blank" rel="noopener noreferrer" className="text-lg">
+                  Instagram
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <FaYoutube className="text-2xl" aria-label="YouTube" />
+                <a href="https://www.youtube.com/@BostonDodgeballLeague" target="_blank" rel="noopener noreferrer" className="text-lg">
+                  YouTube
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <FaFacebook className="text-2xl" aria-label="Facebook" />
+                <a href="https://www.facebook.com/profile.php?id=61558561226354" target="_blank" rel="noopener noreferrer" className="text-lg">
+                  Facebook
+                </a>
+              </li>
+              <li className="flex items-center space-x-2">
+                <FaEnvelope className="text-2xl" aria-label="Email" />
+                <a href="mailto:bostondodgeballleague@gmail.com" className="text-lg underline">
+                  Contact Us
+                </a>
+              </li>
             </ul>
           </footer>
         </div>
