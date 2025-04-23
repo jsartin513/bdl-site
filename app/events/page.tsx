@@ -6,7 +6,7 @@ export default function Events() {
   const upcomingEvents = [
     { description: 'Weekly open gyms on Sunday nights from 6pm-9pm', image: '/images/april_open_gym_flyer.jpg' },
     { description: 'First league on Wednesday nights from 7-9:30pm between April 16 and May 21', image: '/images/league_flyer.jpg'},
-    { description: 'The Throw Down 4 (Nickelodeon Edition) on July 12, 2025', image: '/images/throw_down_4_flyer.jpg'},
+    { description: 'The Throw Down 4 (Nickelodeon Edition) on July 13, 2025', image: '/images/throw_down_4_flyer.jpg'},
   ];
 
   const pastEvents = [
