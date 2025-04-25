@@ -34,9 +34,10 @@ export default function RootLayout({
             <h1 className="text-4xl">Boston Dodgeball League</h1>
             <nav>
               <ul className="flex justify-center space-x-8">
-                <li className="text-lg"><Link href="/">About</Link></li>
+                <li className="text-lg"><Link href="/league">League</Link></li>
                 <li className="text-lg"><Link href="/events">Events</Link></li>
                 <li className="text-lg"><Link href="/rules">Rules</Link></li>
+                <li className="text-lg"><Link href="/">About</Link></li>
               </ul>
             </nav>
           </header>
