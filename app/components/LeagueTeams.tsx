@@ -66,17 +66,22 @@ export default function LeagueTeams() {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4">Teams</h2>
+      <h2 className="text-2xl font-bold mb-6 text-center">Teams</h2>
       {error ? (
-        <p className="text-red-500">Error: {error}</p>
+        <p className="text-red-500 text-center">Error: {error}</p>
       ) : teams.length > 0 ? (
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {teams.map((team, index) => (
-            <div key={index} className="mb-6">
-              <h3 className="text-xl font-semibold mb-2">{team.header}</h3>
+            <div
+              key={index}
+              className="bg-white shadow-md rounded-lg p-4 border border-gray-200"
+            >
+              <h3 className="text-lg font-semibold mb-3 text-center text-blue-600">
+                {team.header}
+              </h3>
               <ul className="list-disc pl-5">
                 {team.members.map((member, memberIndex) => (
-                  <li key={memberIndex} className="mb-1">
+                  <li key={memberIndex} className="text-gray-700">
                     {member}
                   </li>
                 ))}
@@ -85,7 +90,7 @@ export default function LeagueTeams() {
           ))}
         </div>
       ) : (
-        <p>Loading teams...</p>
+        <p className="text-center">Loading teams...</p>
       )}
     </section>
   );
