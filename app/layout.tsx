@@ -37,7 +37,7 @@ export default function RootLayout({
                 <li className="text-lg"><Link href="/league">League</Link></li>
                 <li className="text-lg"><Link href="/events">Events</Link></li>
                 <li className="text-lg"><Link href="/rules">Rules</Link></li>
-                <li className="text-lg"><Link href="about">About</Link></li>
+                <li className="text-lg"><Link href="/about">About</Link></li>
               </ul>
             </nav>
           </header>
