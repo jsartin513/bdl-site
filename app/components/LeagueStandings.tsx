@@ -72,15 +72,17 @@ export default function LeagueStandings() {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-4">League Standings</h2>
       {error ? (
-        <p className="text-red-500">Error: {error}</p>
+        <p className="text-red-500 text-center">Error: {error}</p>
       ) : standings.length > 0 ? (
-        <table className="table-auto w-full border-collapse border border-gray-300">
+        <table className="table-auto w-full border-collapse border border-gray-300 bg-white shadow-md rounded-lg">
           <thead>
-            <tr>
+            <tr className="bg-gray-200">
               {headers.map((header, index) => (
-                <th key={index} className="border border-gray-300 px-4 py-2">
+                <th
+                  key={index}
+                  className="border border-gray-300 px-4 py-2 text-left text-gray-700 font-semibold"
+                >
                   {header}
                 </th>
               ))}
@@ -88,9 +90,15 @@ export default function LeagueStandings() {
           </thead>
           <tbody>
             {standings.map((row, rowIndex) => (
-              <tr key={rowIndex}>
+              <tr
+                key={rowIndex}
+                className={rowIndex % 2 === 0 ? "bg-gray-50" : "bg-white"}
+              >
                 {row.map((cell, cellIndex) => (
-                  <td key={cellIndex} className="border border-gray-300 px-4 py-2">
+                  <td
+                    key={cellIndex}
+                    className="border border-gray-300 px-4 py-2 text-gray-800"
+                  >
                     {cell}
                   </td>
                 ))}
@@ -99,7 +107,7 @@ export default function LeagueStandings() {
           </tbody>
         </table>
       ) : (
-        <p>Loading standings...</p>
+        <p className="text-center text-gray-700">Loading standings...</p>
       )}
     </section>
   );

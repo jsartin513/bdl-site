@@ -66,7 +66,6 @@ export default function LeagueTeams() {
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-6 text-center">Teams</h2>
       {error ? (
         <p className="text-red-500 text-center">Error: {error}</p>
       ) : teams.length > 0 ? (

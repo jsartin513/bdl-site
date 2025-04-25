@@ -3,7 +3,6 @@
 export default function LeagueDetails() {
   return (
     <section className="bg-gray-100 p-6 rounded-lg shadow-md mb-8">
-      <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">League Details</h2>
       <div className="text-gray-800">
         <p className="mb-2">
           <strong>Schedule:</strong> Wednesdays from April 16, 2025 through May 21, 2025
