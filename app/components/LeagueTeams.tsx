@@ -47,8 +47,15 @@ export default function LeagueTeams() {
           );
           const header = rows[0]; // First row is the header
           const members = rows.slice(1); // Remaining rows are team members
+          const memberNames = members.map((member) => {
+            const nameParts = member.split(" ");
+            const nameLength = nameParts.length;
+            const firstName = nameParts.slice(0, nameLength - 1).join(" ");            const lastName = nameParts.slice(nameLength - 1).join(" ");
+            const lastInitial = lastName.charAt(0).toUpperCase();
+            return `${firstName} ${lastInitial}.`;
+          });
 
-          allTeams.push({ header, members });
+          allTeams.push({ header, members: memberNames });
         }
 
         setTeams(allTeams);
