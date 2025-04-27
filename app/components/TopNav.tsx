@@ -25,17 +25,17 @@ export default function TopNav() {
           <ul className="flex justify-center space-x-8">
             <li
               className={`text-lg ${
-                pathname === "/league" ? "font-bold underline text-blue-700" : ""
-              }`}
-            >
-              <Link href="/league">League</Link>
-            </li>
-            <li
-              className={`text-lg ${
                 pathname === "/events" ? "font-bold underline text-blue-700" : ""
               }`}
             >
               <Link href="/events">Events</Link>
+            </li>
+            <li
+              className={`text-lg ${
+                pathname === "/league" ? "font-bold underline text-blue-700" : ""
+              }`}
+            >
+              <Link href="/league">League</Link>
             </li>
             <li
               className={`text-lg ${
