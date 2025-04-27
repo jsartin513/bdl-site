@@ -1,10 +1,8 @@
 import TabbedLayout from '../components/TabbedLayout';
-import Carousel from '../components/Carousel';
-import Image from 'next/image';
+import UpcomingEvents from '../components/UpcomingEvents';
+import PastEvents from '../components/PastEvents';
 
 export default function Events() {
-  const today = new Date();
-
   const upcomingEvents = [
     {
       description: 'Weekly open gyms on Sunday nights from 6pm-9pm (April)',
@@ -38,40 +36,14 @@ export default function Events() {
     { description: 'The Throw Down 3 (Cartoon Network Edition) on February 22, 2025 Winners: Dodge This, Mama', image: '/images/dodge_this_mama.jpeg' },
   ];
 
-  // Filter upcoming events based on start_date and end_date
-  const filteredUpcomingEvents = upcomingEvents.filter((event) => {
-    if (event.start_date && event.end_date) {
-      return today >= event.start_date && today <= event.end_date;
-    }
-    return true; // Show events without date restrictions
-  });
-
   const tabs = [
     {
       label: 'Upcoming Events',
-      content: (
-        <section className="mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredUpcomingEvents.map((event, index) => (
-              <div key={index} className="border p-4 rounded shadow">
-                <div className="flex justify-center mb-4">
-                  <Image src={event.image} alt={event.description} width={500} height={300} />
-                </div>
-                <p className="mb-4 text-md font-bold text-center">{event.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-      ),
+      content: <UpcomingEvents events={upcomingEvents} />,
     },
     {
       label: 'Past Events',
-      content: (
-        <section>
-          <p className="mb-8">Check out our past events and see what you missed!</p>
-          <Carousel items={pastEvents} />
-        </section>
-      ),
+      content: <PastEvents events={pastEvents} />,
     },
   ];
 
