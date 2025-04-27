@@ -3,8 +3,6 @@ import UpcomingEvents from '../components/UpcomingEvents';
 import PastEvents from '../components/PastEvents';
 
 export default function Events() {
-  const today = new Date();
-
   const upcomingEvents = [
     {
       description: 'Weekly open gyms on Sunday nights from 6pm-9pm (April)',
@@ -38,17 +36,10 @@ export default function Events() {
     { description: 'The Throw Down 3 (Cartoon Network Edition) on February 22, 2025 Winners: Dodge This, Mama', image: '/images/dodge_this_mama.jpeg' },
   ];
 
-  const filteredUpcomingEvents = upcomingEvents.filter((event) => {
-    if (event.start_date && event.end_date) {
-      return today >= event.start_date && today <= event.end_date;
-    }
-    return true;
-  });
-
   const tabs = [
     {
       label: 'Upcoming Events',
-      content: <UpcomingEvents events={filteredUpcomingEvents} />,
+      content: <UpcomingEvents events={upcomingEvents} />,
     },
     {
       label: 'Past Events',
