@@ -13,7 +13,7 @@ const messages: Message[] = [
   {
     startDateTime: new Date("2025-05-12T20:00:00-04:00"), // May 12, 8PM Eastern Time
     endDateTime: new Date("2025-05-23T20:00:00-04:00"), // End of the registration period
-    countdownText: "Registration for our {descriptor} on JULY 13, 2025 opens in:",
+    countdownText: "Registration for our {descriptor} on JULY 13, 2025 opens in ",
     activeText: "Register for our {descriptor} on July 13 now!",
     link: "https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit",
   },
@@ -75,10 +75,22 @@ const Marquee: React.FC = () => {
 
   const currentDescriptor = descriptors[currentDescriptorIndex];
 
+  const renderTextWithDescriptor = (text: string) => {
+    const parts = text.split("{descriptor}");
+    return (
+      <>
+        {parts[0]}
+        <span className="font-bold">{currentDescriptor}</span>
+        {parts[1]}
+      </>
+    );
+  };
+
   if (upcomingMessage) {
     return (
       <div className="bg-blue-500 text-white text-center py-2">
-        {upcomingMessage.countdownText.replace("{descriptor}", currentDescriptor)} {timeLeft}
+        {renderTextWithDescriptor(upcomingMessage.countdownText)}{" "}
+        <span className="font-bold">{timeLeft}</span>
       </div>
     );
   }
@@ -93,10 +105,10 @@ const Marquee: React.FC = () => {
             rel="noopener noreferrer"
             className="underline"
           >
-            {activeMessage.activeText.replace("{descriptor}", currentDescriptor)}
+            {renderTextWithDescriptor(activeMessage.activeText)}
           </a>
         ) : (
-          activeMessage.activeText.replace("{descriptor}", currentDescriptor)
+          renderTextWithDescriptor(activeMessage.activeText)
         )}
       </div>
     );
