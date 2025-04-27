@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TopNav from "./components/TopNav"; // Import TopNav component
 import Footer from "./components/Footer"; // Import Footer component
+import Marquee from "./components/Marquee"; // Import Marquee component
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <div className="min-h-screen flex flex-col">
           <TopNav /> {/* Use TopNav component */}
+          <Marquee /> {/* Add Marquee component */}
           <main className="flex-grow mb-16">{children}</main>
           <Footer /> {/* Use Footer component */}
         </div>
