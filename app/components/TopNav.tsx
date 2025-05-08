@@ -32,6 +32,13 @@ export default function TopNav() {
             </li>
             <li
               className={`text-lg ${
+                pathname === "/events/throwdown" ? "font-bold underline text-blue-700" : ""
+              }`}
+            >
+              <Link href="/events/throwdown">Throw Down 4</Link>
+            </li>
+            <li
+              className={`text-lg ${
                 pathname === "/league" ? "font-bold underline text-blue-700" : ""
               }`}
             >

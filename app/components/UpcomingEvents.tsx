@@ -1,10 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Event {
   description: string;
   image: string;
   start_date: Date;
   end_date: Date;
+  link?: string;
 }
 
 interface UpcomingEventsProps {
@@ -26,14 +28,24 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
     <section className="mb-8">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredEvents.map((event, index) => (
-          <div key={index} className="border p-4 rounded shadow">
-            <div className="flex justify-center mb-4">
-              <Image src={event.image} alt={event.description} width={500} height={300} />
-            </div>
-            <p className="mb-4 text-md font-bold text-center">{event.description}</p>
-          </div>
+          event.link ? (
+            <Link key={index} href={event.link}>
+              {renderEventCard(index, event)}
+            </Link>
+          ) : (
+            renderEventCard(index, event)
+          )
         ))}
       </div>
     </section>
   );
+
+  function renderEventCard(index: number, event: Event) {
+    return <div key={index} className="border p-4 rounded shadow">
+      <div className="flex justify-center mb-4">
+        <Image src={event.image} alt={event.description} width={500} height={300} />
+      </div>
+      <p className="mb-4 text-md font-bold text-center">{event.description}</p>
+    </div>;
+  }
 }
