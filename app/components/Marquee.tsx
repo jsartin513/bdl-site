@@ -80,7 +80,7 @@ const Marquee: React.FC = () => {
     return (
       <>
         {parts[0]}
-        <span className="font-bold">{currentDescriptor}</span>
+        <span className="font-bold text-yellow-300">{currentDescriptor}</span>
         {parts[1]}
       </>
     );
@@ -88,28 +88,32 @@ const Marquee: React.FC = () => {
 
   if (upcomingMessage) {
     return (
-      <div className="bg-blue-500 text-white text-center py-2">
-        {renderTextWithDescriptor(upcomingMessage.countdownText)}{" "}
-        <span className="font-bold">{timeLeft}</span>
+      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-center py-4">
+        <span className="text-2xl font-extrabold">
+          {renderTextWithDescriptor(upcomingMessage.countdownText)}{" "}
+          <span className="font-extrabold text-yellow-300">{timeLeft}</span>
+        </span>
       </div>
     );
   }
 
   if (activeMessage) {
     return (
-      <div className="bg-green-500 text-white text-center py-2">
-        {activeMessage.link ? (
-          <a
-            href={activeMessage.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            {renderTextWithDescriptor(activeMessage.activeText)}
-          </a>
-        ) : (
-          renderTextWithDescriptor(activeMessage.activeText)
-        )}
+      <div className="bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white text-center py-4">
+        <span className="text-2xl font-extrabold">
+          {activeMessage.link ? (
+            <a
+              href={activeMessage.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-yellow-300"
+            >
+              {renderTextWithDescriptor(activeMessage.activeText)}
+            </a>
+          ) : (
+            renderTextWithDescriptor(activeMessage.activeText)
+          )}
+        </span>
       </div>
     );
   }
