@@ -1,6 +1,7 @@
 import LeagueStandings from "../components/LeagueStandings";
 import LeagueTeams from "../components/LeagueTeams";
 import LeagueDetails from "../components/LeagueDetails";
+import Link from "next/link";
 
 export default function LeaguePage() {
   return (
@@ -27,6 +28,17 @@ export default function LeaguePage() {
           <LeagueTeams />
         </div>
       </div>
+
+      {/* League Guidelines Section */}
+      <section className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow-sm mt-8 text-center">
+        <h2 className="text-xl font-semibold mb-2">League Guidelines</h2>
+        <p className="mb-2 text-sm">
+          Learn more about the rules, policies, and structure of the Wednesday Night Remix League.
+        </p>
+        <Link href="/league/guidelines">
+          <span className="text-blue-500 underline hover:text-blue-700">View Guidelines</span>
+        </Link>
+      </section>
     </main>
   );
 }
