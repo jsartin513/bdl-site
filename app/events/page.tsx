@@ -21,12 +21,14 @@ export default function Events() {
       image: '/images/league_flyer.jpg',
       start_date: new Date('2025-04-16'),
       end_date: new Date('2025-05-21'),
+      link: '/league',
     },
     {
       description: 'The Throw Down 4 (Nickelodeon Edition) on July 13, 2025',
       image: '/images/throw_down_4_flyer.jpg',
       start_date: new Date('2025-04-01'),
       end_date: new Date('2025-07-13'),
+      link: '/events/throwdown',
     },
   ];
 
