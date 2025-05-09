@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 interface Message {
@@ -6,7 +7,8 @@ interface Message {
   endDateTime: Date;
   countdownText: string;
   activeText: string;
-  link?: string;
+  registrationLink?: string;
+  infoLink: string;
 }
 
 const messages: Message[] = [
@@ -15,7 +17,8 @@ const messages: Message[] = [
     endDateTime: new Date("2025-05-23T20:00:00-04:00"), // End of the registration period
     countdownText: "Registration for our {descriptor} on JULY 13, 2025 opens in ",
     activeText: "Register for our {descriptor} on July 13 now!",
-    link: "https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit",
+    registrationLink: "https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit",
+    infoLink: '/events/throwdown',
   },
 ];
 
@@ -93,6 +96,14 @@ const Marquee: React.FC = () => {
           {renderTextWithDescriptor(upcomingMessage.countdownText)}{" "}
           <span className="font-extrabold text-yellow-300">{timeLeft}</span>
         </span>
+        <span className="ml-4 text-sm">
+          <Link
+            href={upcomingMessage.infoLink}
+            className="underline hover:text-yellow-300"
+          >
+            More Info
+          </Link>
+        </span>
       </div>
     );
   }
@@ -101,9 +112,9 @@ const Marquee: React.FC = () => {
     return (
       <div className="bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white text-center py-4">
         <span className="text-2xl font-extrabold">
-          {activeMessage.link ? (
+          {activeMessage.registrationLink ? (
             <a
-              href={activeMessage.link}
+              href={activeMessage.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-yellow-300"

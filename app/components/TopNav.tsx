@@ -42,7 +42,7 @@ export default function TopNav() {
                 pathname === "/beast-coast" ? "font-bold underline text-blue-700" : ""
               }`}
             >
-              <Link href="/beast-coast">BEAST COAST</Link>
+              <Link href="/beast-coast">Beast Coast</Link>
             </li>
             <li
               className={`text-lg ${
