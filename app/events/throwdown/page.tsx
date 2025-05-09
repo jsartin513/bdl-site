@@ -1,4 +1,24 @@
 import Countdown from "@/app/components/Countdown";
+import Image from "next/image";
+
+const captains = [
+  { name: "Akil", image: "/images/throwdown/captains/Akil.png" },
+  { name: "Armando", image: "/images/throwdown/captains/Armando.png" },
+  { name: "Bo", image: "/images/throwdown/captains/Bo.png" },
+  { name: "Brandon", image: "/images/throwdown/captains/Brandon.png" },
+  { name: "Decker", image: "/images/throwdown/captains/Decker.png" },
+  { name: "Dylon", image: "/images/throwdown/captains/Dylon.png" },
+  { name: "Frankie", image: "/images/throwdown/captains/Frankie.png" },
+  { name: "Gio", image: "/images/throwdown/captains/Gio.png" },
+  { name: "Jon", image: "/images/throwdown/captains/Jon.png" },
+  { name: "Matt", image: "/images/throwdown/captains/Matt.png" },
+  { name: "Nicky", image: "/images/throwdown/captains/Nicky.png" },
+  { name: "Pierce", image: "/images/throwdown/captains/Pierce.png" },
+  { name: "Ryan", image: "/images/throwdown/captains/Ryan.png" },
+  { name: "Ryker", image: "/images/throwdown/captains/Ryker.png" },
+  { name: "Sean", image: "/images/throwdown/captains/Sean.png", release_date: "2025-05-10" },
+  { name: "Tenni", image: "/images/throwdown/captains/Tenni.png", release_date: "2025-05-11" },
+];
 
 export default function ThrowDownPage() {
   return (
@@ -60,6 +80,36 @@ export default function ThrowDownPage() {
             : View the tournament schedule and bracket.
           </li>
         </ul>
+      </section>
+
+      {/* Captains Section */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold mb-4 text-center">Meet the Captains</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {captains.map((captain) => {
+            const isReleased =
+              !captain.release_date || new Date() >= new Date(captain.release_date);
+
+            return (
+              <div key={captain.name} className="text-center">
+                {isReleased ? (
+                  <Image
+                    src={captain.image}
+                    alt={captain.name}
+                    width={200}
+                    height={200}
+                    className="w-full h-auto rounded-lg shadow-md"
+                  />
+                ) : (
+                  <div className="w-full h-9/10 rounded-lg shadow-md bg-gray-300 flex items-center justify-center text-4xl font-bold text-gray-700 ">
+                    ?
+                  </div>
+                )}
+                <p className="mt-2 font-bold">{isReleased ? captain.name : "Coming Soon"}</p>
+              </div>
+            );
+          })}
+        </div>
       </section>
 
       {/* Registration Section */}
