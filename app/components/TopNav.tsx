@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation"; // Import usePathname hook
+import { usePathname } from "next/navigation";
 
 export default function TopNav() {
-  const pathname = usePathname(); // Get the current path
+  const pathname = usePathname();
 
   return (
     <header className="bg-gray-200 text-blue-500 p-4">
@@ -12,7 +12,7 @@ export default function TopNav() {
         {/* Logo */}
         <div className="flex items-center space-x-4">
           <Image
-            src="/images/bdl_logo.png" // Replace with the correct path to your logo
+            src="/images/bdl_logo.png"
             alt="Boston Dodgeball League Logo"
             width={80}
             height={50}
@@ -36,6 +36,13 @@ export default function TopNav() {
               }`}
             >
               <Link href="/events/throwdown">Throw Down 4</Link>
+            </li>
+            <li
+              className={`text-lg ${
+                pathname === "/beast-coast" ? "font-bold underline text-blue-700" : ""
+              }`}
+            >
+              <Link href="/beast-coast">BEAST COAST</Link>
             </li>
             <li
               className={`text-lg ${
