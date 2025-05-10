@@ -20,7 +20,11 @@ const captains = [
   { name: "Tenni", image: "/images/throwdown/captains/Tenni.png", release_date: "2025-05-11" },
 ];
 
+const registrationDate = new Date("2025-05-12T20:00:00-04:00"); // Explicitly set to Eastern Time
+
 export default function ThrowDownPage() {
+  const now = new Date();
+
   return (
     <main className="p-8 max-w-6xl mx-auto">
       {/* Tournament Header */}
@@ -48,7 +52,10 @@ export default function ThrowDownPage() {
             <strong>Theme:</strong> Nickelodeon
           </li>
           <li>
-            <strong>Registration Opens:</strong> May 12, 2025, at 8:00 PM ET
+            <strong>Registration Fee:</strong> $50
+          </li>
+          <li>
+            <strong>Registration Opens:</strong> {registrationDate.toLocaleString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "numeric", hour12: true })} ET
           </li>
         </ul>
       </section>
@@ -88,7 +95,7 @@ export default function ThrowDownPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {captains.map((captain) => {
             const isReleased =
-              !captain.release_date || new Date() >= new Date(captain.release_date);
+              !captain.release_date || now >= new Date(captain.release_date);
 
             return (
               <div key={captain.name} className="text-center">
@@ -116,13 +123,13 @@ export default function ThrowDownPage() {
       <section className="text-center bg-yellow-200 text-gray-800 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Ready to Compete?</h2>
         <p className="mb-4">
-          Registration opens on <strong>May 12, 2025, at 8:00 PM ET</strong>. Don’t miss your chance to be part of the action!
+          Registration opens on <strong>{registrationDate.toLocaleString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "numeric", hour12: true })} ET</strong>. Don’t miss your chance to be part of the action!
         </p>
-        {new Date() < new Date("2025-05-12T20:00:00") ? (
+        {now < registrationDate ? (
           <p className="text-lg font-bold">
             Registration opens in{" "}
             <span className="font-extrabold text-blue-600">
-              <Countdown targetDate={new Date("2025-05-12T20:00:00")} />
+              <Countdown targetDate={registrationDate} />
             </span>
           </p>
         ) : (
