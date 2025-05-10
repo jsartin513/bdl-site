@@ -12,19 +12,19 @@ export default function LeaguePage() {
         {/* Left Column: Details and Standings */}
         <div className="space-y-8">
           <section className="bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4 text-center">Details</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Details</h2>
             <LeagueDetails />
           </section>
 
           <section className="bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4 text-center">Standings</h2>
+            <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Standings</h2>
             <LeagueStandings />
           </section>
         </div>
 
         {/* Right Column: Teams */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold mb-4 text-center">Teams</h2>
+          <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Teams</h2>
           <LeagueTeams />
         </div>
       </div>
