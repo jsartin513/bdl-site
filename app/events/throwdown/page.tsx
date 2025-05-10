@@ -52,6 +52,9 @@ export default function ThrowDownPage() {
             <strong>Theme:</strong> Nickelodeon
           </li>
           <li>
+            <strong>Registration Fee:</strong> $50
+          </li>
+          <li>
             <strong>Registration Opens:</strong> {registrationDate.toLocaleString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "numeric", hour12: true })} ET
           </li>
         </ul>
