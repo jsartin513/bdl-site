@@ -16,7 +16,7 @@ const messages: Message[] = [
     startDateTime: new Date("2025-05-12T20:00:00-04:00"), // May 12, 8PM Eastern Time
     endDateTime: new Date("2025-05-23T20:00:00-04:00"), // End of the registration period
     countdownText: "Registration for our {descriptor} on JULY 13, 2025 opens in ",
-    activeText: "Register for our {descriptor} on July 13 now!",
+    activeText: "Our {descriptor} on July 13 has SOLD OUT! Join the waitlist today!",
     registrationLink: "https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit",
     infoLink: '/events/throwdown',
   },
