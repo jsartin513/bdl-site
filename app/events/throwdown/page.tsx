@@ -1,5 +1,6 @@
 import Countdown from "@/app/components/Countdown";
 import Image from "next/image";
+import Link from "next/link";
 
 const captains = [
   { name: "Akil", image: "/images/throwdown/captains/Akil.png" },
@@ -123,25 +124,16 @@ export default function ThrowDownPage() {
       <section className="text-center bg-yellow-200 text-gray-800 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Ready to Compete?</h2>
         <p className="mb-4">
-          Registration opens on <strong>{registrationDate.toLocaleString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "numeric", hour12: true })} ET</strong>. Don’t miss your chance to be part of the action!
+          Registration is now open for the <strong>Throw Down 4 tournament</strong> on <strong>July 13, 2025</strong>! Don’t miss your chance to be part of the action.
         </p>
-        {now < registrationDate ? (
-          <p className="text-lg font-bold">
-            Registration opens in{" "}
-            <span className="font-extrabold text-blue-600">
-              <Countdown targetDate={registrationDate} />
-            </span>
-          </p>
-        ) : (
-          <a
-            href="https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white bg-blue-600 hover:bg-blue-800 px-6 py-3 rounded-lg font-bold"
-          >
-            Register Now
-          </a>
-        )}
+        <Link
+          href="https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white bg-blue-600 hover:bg-blue-800 px-6 py-3 rounded-lg font-bold"
+        >
+          Register Now
+        </Link>
       </section>
     </main>
   );
