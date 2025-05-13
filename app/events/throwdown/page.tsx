@@ -1,4 +1,3 @@
-import Countdown from "@/app/components/Countdown";
 import Image from "next/image";
 import Link from "next/link";
 
