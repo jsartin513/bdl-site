@@ -28,8 +28,8 @@ describe("Marquee Component", () => {
     render(<Marquee />);
 
     // Assert the active message
-    expect(screen.getByText(/Register for our/)).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /Register for our/ })).toHaveAttribute(
+    expect(screen.getByText(/SOLD OUT/)).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /SOLD OUT/ })).toHaveAttribute(
       "href",
       "https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit"
     );
@@ -67,6 +67,6 @@ describe("Marquee Component", () => {
 
     // Assert no messages are displayed
     expect(screen.queryByText(/Registration for our/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/Register for our/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/SOLD OUT/)).not.toBeInTheDocument();
   });
 });
