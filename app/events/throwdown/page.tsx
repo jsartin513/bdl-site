@@ -123,7 +123,7 @@ export default function ThrowDownPage() {
       <section className="text-center bg-yellow-200 text-gray-800 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-4">Ready to Compete?</h2>
         <p className="mb-4">
-          Registration is now open for the <strong>Throw Down 4 tournament</strong> on <strong>July 13, 2025</strong>! Don’t miss your chance to be part of the action.
+          The <strong>Throw Down 4 tournament</strong> on <strong>July 13, 2025</strong> is now sold out!
         </p>
         <Link
           href="https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit"
@@ -131,7 +131,7 @@ export default function ThrowDownPage() {
           rel="noopener noreferrer"
           className="text-white bg-blue-600 hover:bg-blue-800 px-6 py-3 rounded-lg font-bold"
         >
-          Register Now
+          Join the waitlist
         </Link>
       </section>
     </main>
