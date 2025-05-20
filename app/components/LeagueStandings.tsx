@@ -30,7 +30,7 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
       try {
         const response = await fetch(PUBLIC_URL);
         if (!response.ok) {
-          throw new Error("Failed to fetch standings");
+          throw new Error("Standings data not found");
         }
         const text = await response.text();
         const json: GoogleSheetResponse = JSON.parse(

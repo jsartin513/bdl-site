@@ -37,7 +37,7 @@ export default function LeagueTeams({ spreadsheetId, sheetNames }: LeagueTeamsPr
         for (const sheetName of sheetNames) {
           const response = await fetch(`${BASE_URL}${sheetName}`);
           if (!response.ok) {
-            throw new Error(`Failed to fetch teams from ${sheetName}`);
+            throw new Error(`Team data not found`);
           }
           const text = await response.text();
           const json: GoogleSheetResponse = JSON.parse(
