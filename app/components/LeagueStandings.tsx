@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const SPREADSHEET_ID = "1wzb7SfeC3AsFkq5_5OJZnI2TAIPFB2IPmCmYZTB6UX4";
-const SHEET_NAME = "League Standings"; // Replace with the name of your sheet
-const PUBLIC_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_NAME}`;
+interface LeagueStandingsProps {
+  spreadsheetId: string;
+  sheetName: string;
+}
 
 interface GoogleSheetRow {
   c: { v: string | number | null; f?: string }[]; // Each cell can have a value or be null
@@ -17,10 +18,12 @@ interface GoogleSheetResponse {
   };
 }
 
-export default function LeagueStandings() {
+export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStandingsProps) {
   const [headers, setHeaders] = useState<string[]>([]);
   const [standings, setStandings] = useState<string[][]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const PUBLIC_URL = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
 
   useEffect(() => {
     async function fetchStandings() {
@@ -68,7 +71,7 @@ export default function LeagueStandings() {
     }
 
     fetchStandings();
-  }, []);
+  }, [PUBLIC_URL]);
 
   return (
     <section>

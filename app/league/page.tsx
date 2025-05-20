@@ -10,6 +10,16 @@ export default function LeaguePage() {
     sponsorBar: "Remnant Brewing Satellite (877 Cambridge St, Cambridge, MA 02141)",
   };
 
+  const standingsConfig = {
+    spreadsheetId: "1wzb7SfeC3AsFkq5_5OJZnI2TAIPFB2IPmCmYZTB6UX4",
+    sheetName: "League Standings",
+  };
+
+  const teamsConfig = {
+    spreadsheetId: "1iyrbwuHOBwVBLbI6E4RqplAerW8GFdmvsne3d9jTDHY",
+    sheetNames: ["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6", "Team 7"],
+  };
+
   return (
     <main className="p-8 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold text-center mb-8">Wednesday Night Remix League</h1>
@@ -28,14 +38,20 @@ export default function LeaguePage() {
 
           <section className="bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Standings</h2>
-            <LeagueStandings />
+            <LeagueStandings
+              spreadsheetId={standingsConfig.spreadsheetId}
+              sheetName={standingsConfig.sheetName}
+            />
           </section>
         </div>
 
         {/* Right Column: Teams */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Teams</h2>
-          <LeagueTeams />
+          <LeagueTeams
+            spreadsheetId={teamsConfig.spreadsheetId}
+            sheetNames={teamsConfig.sheetNames}
+          />
         </div>
       </div>
 

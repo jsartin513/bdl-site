@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-const SPREADSHEET_ID = "1iyrbwuHOBwVBLbI6E4RqplAerW8GFdmvsne3d9jTDHY";
-const SHEET_NAMES = ["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6", "Team 7"]; // Replace with the actual tab names
-const BASE_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:json&sheet=`;
+interface LeagueTeamsProps {
+  spreadsheetId: string;
+  sheetNames: string[];
+}
 
 interface GoogleSheetRow {
   c: { v: string | number | null; f?: string }[]; // Each cell can have a value or be null
@@ -22,16 +23,18 @@ interface TeamData {
   members: string[];
 }
 
-export default function LeagueTeams() {
+export default function LeagueTeams({ spreadsheetId, sheetNames }: LeagueTeamsProps) {
   const [teams, setTeams] = useState<TeamData[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  const BASE_URL = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&sheet=`;
 
   useEffect(() => {
     async function fetchTeams() {
       try {
         const allTeams: TeamData[] = [];
 
-        for (const sheetName of SHEET_NAMES) {
+        for (const sheetName of sheetNames) {
           const response = await fetch(`${BASE_URL}${sheetName}`);
           if (!response.ok) {
             throw new Error(`Failed to fetch teams from ${sheetName}`);
@@ -50,7 +53,8 @@ export default function LeagueTeams() {
           const memberNames = members.map((member) => {
             const nameParts = member.split(" ");
             const nameLength = nameParts.length;
-            const firstName = nameParts.slice(0, nameLength - 1).join(" ");            const lastName = nameParts.slice(nameLength - 1).join(" ");
+            const firstName = nameParts.slice(0, nameLength - 1).join(" ");
+            const lastName = nameParts.slice(nameLength - 1).join(" ");
             const lastInitial = lastName.charAt(0).toUpperCase();
             return `${firstName} ${lastInitial}.`;
           });
@@ -69,7 +73,7 @@ export default function LeagueTeams() {
     }
 
     fetchTeams();
-  }, []);
+  }, [BASE_URL, sheetNames]);
 
   return (
     <section>
