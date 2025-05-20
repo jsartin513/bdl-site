@@ -4,6 +4,12 @@ import LeagueDetails from "../components/LeagueDetails";
 import Link from "next/link";
 
 export default function LeaguePage() {
+  const leagueDetails = {
+    schedule: "Wednesdays from April 16, 2025 through May 21, 2025 (May 21 is playoffs), 7:00 PM - 9:30 PM",
+    location: "Albert F. Argenziano School (290 Washington St, Somerville, MA 02143, DOOR 10)",
+    sponsorBar: "Remnant Brewing Satellite (877 Cambridge St, Cambridge, MA 02141)",
+  };
+
   return (
     <main className="p-8 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold text-center mb-8">Wednesday Night Remix League</h1>
@@ -13,7 +19,11 @@ export default function LeaguePage() {
         <div className="space-y-8">
           <section className="bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Details</h2>
-            <LeagueDetails />
+            <LeagueDetails
+              schedule={leagueDetails.schedule}
+              location={leagueDetails.location}
+              sponsorBar={leagueDetails.sponsorBar}
+            />
           </section>
 
           <section className="bg-gray-800 p-6 rounded-lg shadow-md">
