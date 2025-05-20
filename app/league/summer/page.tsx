@@ -1,28 +1,27 @@
-import LeagueStandings from "../components/LeagueStandings";
-import LeagueTeams from "../components/LeagueTeams";
-import LeagueDetails from "../components/LeagueDetails";
-import Link from "next/link";
+import LeagueDetails from "../../components/LeagueDetails";
+import LeagueStandings from "../../components/LeagueStandings";
+import LeagueTeams from "../../components/LeagueTeams";
 
-export default function LeaguePage() {
-  const leagueDetails = {
-    schedule: "Wednesdays from April 16, 2025 through May 21, 2025 (May 21 is playoffs), 7:00 PM - 9:30 PM",
+export default function SummerLeaguePage() {
+  const summerLeagueDetails = {
+    schedule: "Wednesdays from June 4, 2025 through July 23, 2025, 7:00 PM - 9:30 PM",
     location: "Albert F. Argenziano School (290 Washington St, Somerville, MA 02143, DOOR 10)",
     sponsorBar: "Remnant Brewing Satellite (877 Cambridge St, Cambridge, MA 02141)",
   };
 
   const standingsConfig = {
-    spreadsheetId: "1wzb7SfeC3AsFkq5_5OJZnI2TAIPFB2IPmCmYZTB6UX4",
-    sheetName: "League Standings",
+    spreadsheetId: "1abc2def3ghi4jkl5mnop6qrst7uvw8xyz9abcd0efgh",
+    sheetName: "Summer League Standings",
   };
 
   const teamsConfig = {
-    spreadsheetId: "1iyrbwuHOBwVBLbI6E4RqplAerW8GFdmvsne3d9jTDHY",
-    sheetNames: ["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6", "Team 7"],
+    spreadsheetId: "1xyz2uvw3rst4mnop5jkl6ghi7def8abc9abcd0efgh",
+    sheetNames: ["Team Lightning", "Team Thunder", "Team Cyclone", "Team Tornado"],
   };
 
   return (
     <main className="p-8 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-8">Wednesday Night Remix League</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">Summer Remix League</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8">
         {/* Left Column: Details and Standings */}
@@ -30,9 +29,9 @@ export default function LeaguePage() {
           <section className="bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Details</h2>
             <LeagueDetails
-              schedule={leagueDetails.schedule}
-              location={leagueDetails.location}
-              sponsorBar={leagueDetails.sponsorBar}
+              schedule={summerLeagueDetails.schedule}
+              location={summerLeagueDetails.location}
+              sponsorBar={summerLeagueDetails.sponsorBar}
             />
           </section>
 
@@ -54,17 +53,6 @@ export default function LeaguePage() {
           />
         </div>
       </div>
-
-      {/* League Guidelines Section */}
-      <section className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow-sm mt-8 text-center">
-        <h2 className="text-xl font-semibold mb-2">League Guidelines</h2>
-        <p className="mb-2 text-sm">
-          Learn more about the rules, policies, and structure of the Wednesday Night Remix League.
-        </p>
-        <Link href="/league/guidelines">
-          <span className="text-blue-500 underline hover:text-blue-700">View Guidelines</span>
-        </Link>
-      </section>
     </main>
   );
 }
