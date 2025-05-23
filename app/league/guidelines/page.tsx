@@ -21,7 +21,7 @@ export default function NextSeason() {
         <h2 className="text-2xl font-bold mb-4">League Details</h2>
         <ul className="list-disc pl-5">
           <li>
-            <strong>Format:</strong> Remix League (assigned teams - maximum of 7 teams), mixed 6v6
+            <strong>Format:</strong> BYO Team League (Join in teams - maximum of 7 teams), mixed 6v6
           </li>
           <li>
             <strong>Location:</strong> Albert F. Argenziano School (290 Washington St, Somerville, MA 02143, <strong>DOOR 10</strong>)
@@ -30,10 +30,10 @@ export default function NextSeason() {
             <strong>Time:</strong> 7:00-9:30pm; doors open at 6:30pm
           </li>
           <li>
-            <strong>Cost:</strong> $65/player (Venmo @bostondodgeballleague)
+            <strong>Cost:</strong> $80/player (Venmo @bostondodgeballleague)
           </li>
           <li>
-            <strong>Dates:</strong> Begins 4/16 (playoffs 5/21)
+            <strong>Dates:</strong> Begins 6/4 (playoffs 7/23)
           </li>
           <li>
             <strong>Sponsor Bar:</strong> Remnant Brewing Satellite (877 Cambridge St, Cambridge MA 02141)
@@ -44,15 +44,6 @@ export default function NextSeason() {
           <li>
             <strong>Ball Type:</strong> Foam; 10 games played per week (3-minute matches ending in untimed no-block)
           </li>
-        </ul>
-      </section>
-
-      {/* Registration Options */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Registration Options</h2>
-        <ul className="list-disc pl-5">
-          <li>Free Agent: Sign up alone and we will place you on a team!</li>
-          <li>Sign Up with a Partner: Sign up with a friend of a different gender to play on the same team!</li>
         </ul>
       </section>
 
