@@ -1,6 +1,7 @@
 import LeagueDetails from "../../components/LeagueDetails";
 import LeagueStandings from "../../components/LeagueStandings";
 import LeagueTeams from "../../components/LeagueTeams";
+import Image from "next/image";
 
 export default function SummerLeaguePage() {
   const summerLeagueDetails = {
@@ -35,22 +36,25 @@ export default function SummerLeaguePage() {
             />
           </section>
 
-          <section className="bg-gray-800 p-6 rounded-lg shadow-md">
+          {/* <section className="bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Standings</h2>
             <LeagueStandings
               spreadsheetId={standingsConfig.spreadsheetId}
               sheetName={standingsConfig.sheetName}
             />
-          </section>
+          </section> */}
         </div>
 
-        {/* Right Column: Teams */}
+        {/* Right Column: Teams and Image */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Teams</h2>
-          <LeagueTeams
-            spreadsheetId={teamsConfig.spreadsheetId}
-            sheetNames={teamsConfig.sheetNames}
-          />
+            <Image
+              src="/images/byot_leagues.jpeg"
+              alt="Teams for bring your own team leagues"
+              className="rounded-lg shadow-md max-w-full h-auto"
+              width={600}
+              height={400}
+            />
         </div>
       </div>
     </main>
