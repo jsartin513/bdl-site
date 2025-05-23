@@ -17,10 +17,10 @@ export default function Events() {
       end_date: new Date('2025-05-31'),
     },
     {
-      description: 'First league on Wednesday nights from 7-9:30pm between April 16 and May 21',
-      image: '/images/league_flyer.jpg',
-      start_date: new Date('2025-04-16'),
-      end_date: new Date('2025-05-21'),
+      description: 'Extended Summer league on Wednesday nights from 7-9:30pm between June 4 and July 23, 2025',
+      image: '/images/byot_leagues.jpeg',
+      start_date: new Date('2025-05-04'),
+      end_date: new Date('2025-07-23'),
       link: '/league',
     },
     {
