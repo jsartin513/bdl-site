@@ -5,16 +5,11 @@ import PastEvents from '../components/PastEvents';
 export default function Events() {
   const upcomingEvents = [
     {
-      description: 'Weekly open gyms on Sunday nights from 6pm-9pm (April)',
-      image: '/images/april_open_gym_flyer.jpg',
-      start_date: new Date('2025-04-01'),
-      end_date: new Date('2025-04-28'),
-    },
-    {
       description: 'Weekly open gyms on Sunday nights from 6pm-9pm (May)',
-      image: '/images/may_open_gym_flyer.jpg',
+      image: '/images/june_open_gym_flyer.png',
       start_date: new Date('2025-04-28'),
-      end_date: new Date('2025-05-31'),
+      end_date: new Date('2025-06-30'),
+      link: '/events/opengym',
     },
     {
       description: 'Extended Summer league on Wednesday nights from 7-9:30pm between June 4 and July 23, 2025',
