@@ -42,7 +42,7 @@ const OpenGymPage = () => {
             Schedule
           </h2>
             <Image
-              src="/images/may_open_gym_flyer.jpg" // Replace with the actual path to the image
+              src="/images/june_open_gym_flyer.png" // Replace with the actual path to the image
               alt="Open Gym Schedule"
               width={500} // Adjust width as needed
               height={500} // Adjust height as needed
