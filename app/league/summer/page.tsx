@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Link from "next/link";
 import LeagueDetails from "../../components/LeagueDetails";
-import LeagueStandings from "../../components/LeagueStandings";
 import LeagueTeams from "../../components/LeagueTeams";
 import Image from "next/image";
+import LeagueScoresAndStandings from "../../components/LeagueScoresAndStandings";
 
 export default function SummerLeaguePage() {
   const summerLeagueDetails = {
@@ -12,15 +12,19 @@ export default function SummerLeaguePage() {
     sponsorBar: "Remnant Brewing Satellite (877 Cambridge St, Cambridge, MA 02141)",
   };
 
-  const standingsConfig = {
-    spreadsheetId: "1abc2def3ghi4jkl5mnop6qrst7uvw8xyz9abcd0efgh",
-    sheetName: "Summer League Standings",
-  };
-
-  const teamsConfig = {
-    spreadsheetId: "1xyz2uvw3rst4mnop5jkl6ghi7def8abc9abcd0efgh",
-    sheetNames: ["Team Lightning", "Team Thunder", "Team Cyclone", "Team Tornado"],
-  };
+  // Spreadsheet and tab config
+  const spreadsheetId = "1XhVYAI5w3XAaeBp8lfbBfXiEkoaF99-rpNH_DJ0MDCs";
+  const rosterTab = "Team Rosters";
+  const weekTabs = [
+    "Week 1 Schedule",
+    "Week 2 Schedule",
+    "Week 3 Schedule",
+    "Week 4 Schedule",
+    "Week 5 Schedule",
+    "Week 6 Schedule",
+    "Week 7 Schedule",
+    "Week 8 Schedule",
+  ];
 
   return (
     <main className="p-8 max-w-6xl mx-auto">
@@ -37,29 +41,35 @@ export default function SummerLeaguePage() {
               sponsorBar={summerLeagueDetails.sponsorBar}
             />
           </section>
-                        {/* League Guidelines Section */}
-      <section className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow-sm mt-8 text-center">
-        <h2 className="text-xl font-semibold mb-2">League Guidelines</h2>
-        <p className="mb-2 text-sm">
-          See full league guidelines, rules, and formatting details here.
-        </p>
-        <Link href="/league/guidelines">
-          <span className="text-blue-500 underline hover:text-blue-700">View Guidelines</span>
-        </Link>
-      </section>
 
-          {/* <section className="bg-gray-800 p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Standings</h2>
-            <LeagueStandings
-              spreadsheetId={standingsConfig.spreadsheetId}
-              sheetName={standingsConfig.sheetName}
+          <section className="bg-gray-800 p-6 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Scores & Standings</h2>
+            <LeagueScoresAndStandings
+              spreadsheetId={spreadsheetId}
+              weekTabs={weekTabs}
+              rosterTab={rosterTab}
             />
-          </section> */}
+          </section>
+
+          <section className="bg-gray-100 text-gray-800 p-4 rounded-lg shadow-sm mt-8 text-center">
+            <h2 className="text-xl font-semibold mb-2">League Guidelines</h2>
+            <p className="mb-2 text-sm">
+              See full league guidelines, rules, and formatting details here.
+            </p>
+            <Link href="/league/guidelines">
+              <span className="text-blue-500 underline hover:text-blue-700">View Guidelines</span>
+            </Link>
+          </section>
         </div>
 
         {/* Right Column: Teams and Image */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Teams</h2>
+          <LeagueTeams
+            spreadsheetId={spreadsheetId}
+            sheetNames={[rosterTab]}
+          />
+          <div className="mt-8 flex justify-center">
             <Image
               src="/images/byot_leagues.jpeg"
               alt="Teams for bring your own team leagues"
@@ -67,8 +77,8 @@ export default function SummerLeaguePage() {
               width={600}
               height={400}
             />
+          </div>
         </div>
-
       </div>
     </main>
   );
