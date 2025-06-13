@@ -5,7 +5,7 @@ import PastEvents from '../components/PastEvents';
 export default function Events() {
   const upcomingEvents = [
     {
-      description: 'Weekly open gyms on Sunday nights from 6pm-9pm (May)',
+      description: 'Weekly open gyms on Sunday nights from 6pm-9pm. Note that we will NOT have open gym in July 2025.',
       image: '/images/june_open_gym_flyer.png',
       start_date: new Date('2025-04-28'),
       end_date: new Date('2025-06-30'),
