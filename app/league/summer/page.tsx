@@ -13,14 +13,10 @@ export default function SummerLeaguePage() {
   };
 
   const standingsConfig = {
-    spreadsheetId: "1abc2def3ghi4jkl5mnop6qrst7uvw8xyz9abcd0efgh",
-    sheetName: "Summer League Standings",
+    spreadsheetId: "1XhVYAI5w3XAaeBp8lfbBfXiEkoaF99-rpNH_DJ0MDCs",
+    sheetName: "Standings",
   };
 
-  const teamsConfig = {
-    spreadsheetId: "1xyz2uvw3rst4mnop5jkl6ghi7def8abc9abcd0efgh",
-    sheetNames: ["Team Lightning", "Team Thunder", "Team Cyclone", "Team Tornado"],
-  };
 
   return (
     <main className="p-8 max-w-6xl mx-auto">
@@ -48,13 +44,13 @@ export default function SummerLeaguePage() {
         </Link>
       </section>
 
-          {/* <section className="bg-gray-800 p-6 rounded-lg shadow-md">
+          <section className="bg-gray-800 p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Standings</h2>
             <LeagueStandings
               spreadsheetId={standingsConfig.spreadsheetId}
               sheetName={standingsConfig.sheetName}
             />
-          </section> */}
+          </section>
         </div>
 
         {/* Right Column: Teams and Image */}

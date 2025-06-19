@@ -8,7 +8,7 @@ interface LeagueStandingsProps {
 }
 
 interface GoogleSheetRow {
-  c: { v: string | number | null; f?: string }[]; // Each cell can have a value or be null
+  c: { v: string | number | null; f?: string }[];
 }
 
 interface GoogleSheetResponse {
@@ -19,8 +19,7 @@ interface GoogleSheetResponse {
 }
 
 export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStandingsProps) {
-  const [headers, setHeaders] = useState<string[]>([]);
-  const [standings, setStandings] = useState<string[][]>([]);
+  const [standings, setStandings] = useState<{ team: string; wins: number }[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   const PUBLIC_URL = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
@@ -34,39 +33,28 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
         }
         const text = await response.text();
         const json: GoogleSheetResponse = JSON.parse(
-          text.substring(47, text.length - 2) // Remove Google Sheets wrapper
+          text.substring(47, text.length - 2)
         );
 
-        // Extract headers from the "cols" property and rename "Points For" to "Points"
-        const extractedHeaders = json.table.cols.map((col) =>
-          col.label === "LEAGUE STANDINGS Team Name"
-            ? "Team Name"
-            : col.label === "Points For"
-            ? "Points"
-            : col.label
+        // Find the first row with "Team Name" in column 1 (B)
+        const rows = json.table.rows;
+        const teamRows = rows.filter(
+          (row) =>
+            row.c[1] &&
+            typeof row.c[1].v === "string" &&
+            row.c[1].v !== "Week #" &&
+            row.c[1].v !== "Team Name"
         );
 
-        // Filter headers to include only "Team Name" and "Points"
-        const filteredHeaders = extractedHeaders.filter((header) =>
-          ["Team Name", "Points"].includes(header)
-        );
-        setHeaders(filteredHeaders);
+        // Map to { team, wins }
+        const standingsData = teamRows.map((row) => ({
+          team: String(row.c[1]?.v ?? ""),
+          wins: Number(row.c[2]?.v ?? 0),
+        }));
 
-        // Extract rows from the "rows" property and filter columns
-        const rows = json.table.rows.map((row) =>
-          row.c
-            .map((cell) => (cell && cell.v !== null ? String(cell.v) : ""))
-            .filter((_, index) =>
-              ["Team Name", "Points"].includes(extractedHeaders[index])
-            )
-        );
-        setStandings(rows);
+        setStandings(standingsData);
       } catch (err) {
-        if (err instanceof Error) {
-          setError(err.message);
-        } else {
-          setError("An unknown error occurred");
-        }
+        setError(err instanceof Error ? err.message : "Unknown error");
       }
     }
 
@@ -81,14 +69,12 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
         <table className="table-auto w-full border-collapse border border-gray-300 bg-white shadow-md rounded-lg">
           <thead>
             <tr className="bg-gray-200">
-              {headers.map((header, index) => (
-                <th
-                  key={index}
-                  className="border border-gray-300 px-4 py-2 text-left text-gray-700 font-semibold"
-                >
-                  {header}
-                </th>
-              ))}
+              <th className="border border-gray-300 px-4 py-2 text-left text-gray-700 font-semibold">
+                Team Name
+              </th>
+              <th className="border border-gray-300 px-4 py-2 text-left text-gray-700 font-semibold">
+                Wins
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -97,14 +83,12 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
                 key={rowIndex}
                 className={rowIndex % 2 === 0 ? "bg-gray-50" : "bg-white"}
               >
-                {row.map((cell, cellIndex) => (
-                  <td
-                    key={cellIndex}
-                    className="border border-gray-300 px-4 py-2 text-gray-800"
-                  >
-                    {cell}
-                  </td>
-                ))}
+                <td className="border border-gray-300 px-4 py-2 text-gray-800">
+                  {row.team}
+                </td>
+                <td className="border border-gray-300 px-4 py-2 text-gray-800">
+                  {row.wins}
+                </td>
               </tr>
             ))}
           </tbody>
