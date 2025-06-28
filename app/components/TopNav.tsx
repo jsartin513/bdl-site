@@ -67,13 +67,6 @@ export default function TopNav() {
             </li>
             <li
               className={`text-lg ${
-                pathname === "/beast-coast" ? "font-bold underline text-blue-700" : ""
-              }`}
-            >
-              <Link href="/beast-coast">Beast Coast</Link>
-            </li>
-            <li
-              className={`text-lg ${
                 pathname === "/league" ? "font-bold underline text-blue-700" : ""
               }`}
             >

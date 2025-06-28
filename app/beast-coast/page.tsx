@@ -5,10 +5,13 @@ export default function BeastCoastPage() {
     <main className="p-8 max-w-6xl mx-auto">
       {/* Event Header */}
       <section className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">BEAST COAST - Philly Dodgeball</h1>
-        <p className="text-lg">
-          Support us on <strong>June 14, 2025</strong>, for the ultimate East Coast dodgeball showdown! 
-        </p>
+      <h1 className="text-4xl font-bold mb-6">Beast Coast 2025</h1>
+      <p className="text-2xl mb-8 text-green-700 font-semibold">
+        We are so proud of our Boston men's and women's teams for both placing <strong>second</strong> at Beast Coast 2025!
+      </p>
+      <p className="mb-4">
+        Thank you to all our players, supporters, and the tournament organizers for an amazing event.
+      </p>
       </section>
 
 
@@ -42,33 +45,6 @@ export default function BeastCoastPage() {
         </div>
       </section>
 
-      {/* Event Details */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Event Details</h2>
-        <ul className="list-disc pl-5">
-          <li>
-            <strong>Match Dates:</strong> June 14, 2025, 9:30 AM - 7:00 PM
-          </li>
-          <li>
-            <strong>Doors Open:</strong> 9:00 AM
-          </li>
-          <li>
-            <strong>Ball Type:</strong> USA Foam
-          </li>
-          <li>
-            <strong>Rules:</strong> USA Dodgeball Rules
-          </li>
-          <li>
-            <strong>Team Size:</strong> 6 players on the court, 9 rostered players
-          </li>
-          <li>
-            <strong>Maximum Teams:</strong> 12
-          </li>
-          <li>
-            <strong>Location:</strong> Drexel University Recreation Center, 3301 Market St, Philadelphia, PA 19104
-          </li>
-        </ul>
-      </section>
     </main>
   );
 }
