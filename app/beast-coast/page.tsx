@@ -7,7 +7,7 @@ export default function BeastCoastPage() {
       <section className="text-center mb-8">
       <h1 className="text-4xl font-bold mb-6">Beast Coast 2025</h1>
       <p className="text-2xl mb-8 text-green-700 font-semibold">
-        We are so proud of our Boston men's and women's teams for both placing <strong>second</strong> at Beast Coast 2025!
+        We are so proud of our Boston men&apos;s and women&apos;s teams for both placing <strong>second</strong> at Beast Coast 2025!
       </p>
       <p className="mb-4">
         Thank you to all our players, supporters, and the tournament organizers for an amazing event.

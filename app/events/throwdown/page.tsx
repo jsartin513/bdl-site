@@ -20,19 +20,41 @@ const captains = [
   { name: "Tenni", image: "/images/throwdown/captains/Tenni.png", release_date: "2025-05-11" },
 ];
 
-const registrationDate = new Date("2025-05-12T20:00:00-04:00"); // Explicitly set to Eastern Time
-
 export default function ThrowDownPage() {
-  const now = new Date();
-
   return (
     <main className="p-8 max-w-6xl mx-auto">
       {/* Tournament Header */}
       <section className="text-center mb-8">
         <h1 className="text-4xl font-bold mb-4">The Throw Down 4</h1>
         <p className="text-lg">
-          Join us for the Nickelodeon-themed dodgeball tournament on <strong>July 13, 2025</strong>! This is our biggest and most exciting event yet.
+          Thank you for your interest in our Nickelodeon-themed dodgeball tournament! Registration is now closed and teams have been drafted.
         </p>
+      </section>
+
+      {/* DodgeballHub Links Section */}
+      <section className="mb-8 text-center">
+        <h2 className="text-2xl font-bold mb-4">Teams & Schedule</h2>
+        <p className="mb-2">
+          <a
+            href="https://www.dodgeballhub.com/events/the-throw-down-4th-edition-jul-13th-2025/teams"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline hover:text-blue-700"
+          >
+            View team rosters
+          </a>
+          {" "}and{" "}
+          <a
+            href="https://www.dodgeballhub.com/events/the-throw-down-4th-edition-jul-13th-2025/schedule"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline hover:text-blue-700"
+          >
+            tournament schedule
+          </a>{" "}
+          on DodgeballHub.
+        </p>
+
       </section>
 
       {/* Tournament Details */}
@@ -51,88 +73,49 @@ export default function ThrowDownPage() {
           <li>
             <strong>Theme:</strong> Nickelodeon
           </li>
-          <li>
-            <strong>Registration Fee:</strong> $50
-          </li>
-          <li>
-            <strong>Registration Opens:</strong> {registrationDate.toLocaleString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "numeric", hour12: true })} ET
-          </li>
         </ul>
       </section>
 
-      {/* Links to Resources */}
-      <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Resources</h2>
-        <ul className="list-disc pl-5">
-          <li>
-            <a
-              href="https://www.canva.com/design/DAGiXaDR34s/BghTCjwUCUmTZ5W74-pEZg/edit?utm_content=DAGiXaDR34s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline hover:text-blue-700"
-            >
-              Welcome Packet
-            </a>
-            : All the tournament details you need to know.
-          </li>
-          <li>
-            <a
-              href="https://docs.google.com/spreadsheets/d/1yb9HrzjKmvBCx_h3riqA-ZwE4XQJaYBBCtAElc0RTrk/edit?gid=1294960808#gid=1294960808"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 underline hover:text-blue-700"
-            >
-              Schedule and Bracket
-            </a>
-            : View the tournament schedule and bracket.
-          </li>
-        </ul>
+      {/* Welcome Packet */}
+      <section className="mb-8 text-center">
+        <a
+          href="https://www.canva.com/design/DAGiXaDR34s/BghTCjwUCUmTZ5W74-pEZg/edit?utm_content=DAGiXaDR34s&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline hover:text-blue-700 text-lg font-semibold"
+        >
+          Welcome Packet: All the tournament details you need to know
+        </a>
       </section>
 
       {/* Captains Section */}
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4 text-center">Meet the Captains</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {captains.map((captain) => {
-            const isReleased =
-              !captain.release_date || now >= new Date(captain.release_date);
-
-            return (
-              <div key={captain.name} className="text-center">
-                {isReleased ? (
-                  <Image
-                    src={captain.image}
-                    alt={captain.name}
-                    width={200}
-                    height={200}
-                    className="w-full h-auto rounded-lg shadow-md"
-                  />
-                ) : (
-                  <div className="w-full h-9/10 rounded-lg shadow-md bg-gray-300 flex items-center justify-center text-4xl font-bold text-gray-700 ">
-                    ?
-                  </div>
-                )}
-                <p className="mt-2 font-bold">{isReleased ? captain.name : "Coming Soon"}</p>
-              </div>
-            );
-          })}
+          {captains.map((captain) => (
+            <div key={captain.name} className="text-center">
+              <Image
+                src={captain.image}
+                alt={captain.name}
+                width={200}
+                height={200}
+                className="w-full h-auto rounded-lg shadow-md"
+              />
+              <p className="mt-2 font-bold">{captain.name}</p>
+            </div>
+          ))}
         </div>
+        <p className="mt-6 text-center text-lg font-semibold text-green-700">
+          Teams have been drafted! All players will be contacted by their captain soon.
+        </p>
       </section>
 
-      {/* Registration Section */}
+      {/* Registration Closed Section */}
       <section className="text-center bg-yellow-200 text-gray-800 p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Ready to Compete?</h2>
-        <p className="mb-4">
-          The <strong>Throw Down 4 tournament</strong> on <strong>July 13, 2025</strong> is now sold out!
+        <h2 className="text-2xl font-bold mb-4">Registration Closed</h2>
+        <p>
+          Registration is now closed. Thank you to everyone who signed up!
         </p>
-        <Link
-          href="https://docs.google.com/forms/d/1iCE8mVu5JT0J_zhHIPYCxE-xsmDMj_ma9wvw5KZ9pOQ/edit"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-white bg-blue-600 hover:bg-blue-800 px-6 py-3 rounded-lg font-bold"
-        >
-          Join the waitlist
-        </Link>
       </section>
     </main>
   );
