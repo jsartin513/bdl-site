@@ -30,10 +30,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Skip to main content link for keyboard users */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-blue-600 text-white p-2 z-50 focus:z-50"
+        >
+          Skip to main content
+        </a>
+        
         <div className="min-h-screen flex flex-col">
           <TopNav /> {/* Use TopNav component */}
           <Marquee /> {/* Add Marquee component */}
-          <main className="flex-grow mb-16">{children}</main>
+          <main id="main-content" className="flex-grow mb-16" tabIndex={-1}>
+            {children}
+          </main>
           <Footer /> {/* Use Footer component */}
         </div>
       </body>

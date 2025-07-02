@@ -46,6 +46,7 @@ export default function Events() {
 
   return (
     <main className="p-8">
+      <h1 className="text-4xl font-bold text-center mb-8 text-blue-700">Boston Dodgeball League Events</h1>
       <TabbedLayout tabs={tabs} />
     </main>
   );

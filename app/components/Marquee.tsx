@@ -91,15 +91,23 @@ const Marquee: React.FC = () => {
 
   if (upcomingMessage) {
     return (
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-center py-4">
+      <div 
+        className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white text-center py-4"
+        role="banner"
+        aria-live="polite"
+        aria-label="Upcoming event announcement"
+      >
         <span className="text-2xl font-extrabold">
           {renderTextWithDescriptor(upcomingMessage.countdownText)}{" "}
-          <span className="font-extrabold text-yellow-300">{timeLeft}</span>
+          <span className="font-extrabold text-yellow-300" aria-label={`Time remaining: ${timeLeft}`}>
+            {timeLeft}
+          </span>
         </span>
         <span className="ml-4 text-sm">
           <Link
             href={upcomingMessage.infoLink}
-            className="underline hover:text-yellow-300"
+            className="underline hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-blue-500 rounded px-1"
+            aria-label="Learn more about this event"
           >
             More Info
           </Link>
@@ -110,14 +118,20 @@ const Marquee: React.FC = () => {
 
   if (activeMessage) {
     return (
-      <div className="bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white text-center py-4">
+      <div 
+        className="bg-gradient-to-r from-green-500 via-teal-500 to-blue-500 text-white text-center py-4"
+        role="banner"
+        aria-live="polite"
+        aria-label="Active event announcement"
+      >
         <span className="text-2xl font-extrabold">
           {activeMessage.registrationLink ? (
             <a
               href={activeMessage.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-yellow-300"
+              className="underline hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-green-500 rounded px-1"
+              aria-label="Register for this event (opens in new tab)"
             >
               {renderTextWithDescriptor(activeMessage.activeText)}
             </a>
