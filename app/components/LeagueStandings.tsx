@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 interface LeagueStandingsProps {
   spreadsheetId: string;
   sheetName: string;
+  maxTeams?: number;
+  maxRows?: number;
 }
 
 interface GoogleSheetRow {
@@ -18,7 +20,12 @@ interface GoogleSheetResponse {
   };
 }
 
-export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStandingsProps) {
+export default function LeagueStandings({ 
+  spreadsheetId, 
+  sheetName, 
+  maxTeams = 10, 
+  maxRows = 20 
+}: LeagueStandingsProps) {
   const [standings, setStandings] = useState<{ team: string; wins: number }[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -36,8 +43,9 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
           text.substring(47, text.length - 2)
         );
 
-        // Find the first row with "Team Name" in column 1 (B)
-        const rows = json.table.rows;
+        // Only process the specified number of rows
+        const rows = json.table.rows.slice(0, maxRows);
+        
         const teamRows = rows.filter(
           (row) =>
             row.c[1] &&
@@ -46,11 +54,13 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
             row.c[1].v !== "Team Name"
         );
 
-        // Map to { team, wins }
-        const standingsData = teamRows.map((row) => ({
-          team: String(row.c[1]?.v ?? ""),
-          wins: Number(row.c[2]?.v ?? 0),
-        }));
+        // Map to { team, wins } and limit to specified number of teams
+        const standingsData = teamRows
+          .map((row) => ({
+            team: String(row.c[1]?.v ?? ""),
+            wins: Number(row.c[2]?.v ?? 0),
+          }))
+          .slice(0, maxTeams);
 
         setStandings(standingsData);
       } catch (err) {
@@ -59,7 +69,7 @@ export default function LeagueStandings({ spreadsheetId, sheetName }: LeagueStan
     }
 
     fetchStandings();
-  }, [PUBLIC_URL]);
+  }, [PUBLIC_URL, maxTeams, maxRows]);
 
   return (
     <section>
