@@ -58,20 +58,22 @@ export default function TopNav() {
             >
               <Link href="/events">Events</Link>
             </li>
-            <li
+            {/* Hide Throw Down 4 link since tournament has passed - keeping page for future photos/content */}
+            {/* <li
               className={`text-lg ${
                 pathname === "/events/throwdown" ? "font-bold underline text-blue-700" : ""
               }`}
             >
               <Link href="/events/throwdown">Throw Down 4</Link>
-            </li>
-            <li
+            </li> */}
+            {/* Hide Beast Coast link for now - keeping page for future use */}
+            {/* <li
               className={`text-lg ${
                 pathname === "/beast-coast" ? "font-bold underline text-blue-700" : ""
               }`}
             >
               <Link href="/beast-coast">Beast Coast</Link>
-            </li>
+            </li> */}
             <li
               className={`text-lg ${
                 pathname === "/league" ? "font-bold underline text-blue-700" : ""
