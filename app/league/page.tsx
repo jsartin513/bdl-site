@@ -7,7 +7,7 @@ export default function LeagueRedirectPage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/league/summer");
+    router.replace("/league/remix");
   }, [router]);
 
   return null;

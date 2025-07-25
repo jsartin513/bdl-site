@@ -1,10 +1,20 @@
-// import TabbedLayout from '../components/TabbedLayout';
-// import UpcomingEvents from '../components/UpcomingEvents';
+import TabbedLayout from '../components/TabbedLayout';
+import UpcomingEvents from '../components/UpcomingEvents';
 import PastEvents from '../components/PastEvents';
 
 export default function Events() {
-  // Keep upcoming events framework for future use
-  // const upcomingEvents = [
+  const upcomingEvents = [
+    {
+      description: 'End of Summer Remix League - 6 weeks + playoffs! August 6 - September 10, with playoffs on September 17. 96 player cap, bigger venue (Shady Hill), more games! $80/person. Click to register!',
+      image: '/images/end_of_summer_2025_league_flyer.jpeg',
+      start_date: new Date('2025-07-06'),
+      end_date: new Date('2025-09-17'),
+      link: 'https://forms.gle/RF8DrYWjSLBJCjkj8',
+    },
+  ];
+
+  // Keep old events framework for reference
+  // const oldUpcomingEvents = [
   //   {
   //     description: 'Weekly open gyms on Sunday nights from 6pm-9pm. Note that we will NOT have open gym in July 2025.',
   //     image: '/images/june_open_gym_flyer.png',
@@ -35,35 +45,20 @@ export default function Events() {
     { description: 'Inaugural Throw Down on August 17, 2024 Winners: Honey Packs', image: '/images/honey_packs.jpeg' },
   ];
 
-  // Hide upcoming events for now - keeping framework for future use
-  // const tabs = [
-  //   {
-  //     label: 'Upcoming Events',
-  //     content: <UpcomingEvents events={upcomingEvents} />,
-  //   },
-  //   {
-  //     label: 'Past Events',
-  //     content: <PastEvents events={pastEvents} />,
-  //   },
-  // ];
+  const tabs = [
+    {
+      label: 'Upcoming Events',
+      content: <UpcomingEvents events={upcomingEvents} />,
+    },
+    {
+      label: 'Past Events',
+      content: <PastEvents events={pastEvents} />,
+    },
+  ];
 
   return (
     <main className="p-8">
-      <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-        <p className="text-blue-800 font-medium">
-          Open gyms are on a quick summer break. Check back later this summer for open gym information!
-        </p>
-      </div>
-      <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-        <p className="text-green-800 font-medium">
-          Looking for current league information? Check out our{' '}
-          <a href="/league/summer" className="text-green-600 hover:text-green-800 underline font-semibold">
-            Summer League page
-          </a>
-          {' '}for details and standings!
-        </p>
-      </div>
-      <PastEvents events={pastEvents} />
+      <TabbedLayout tabs={tabs} />
     </main>
   );
 }

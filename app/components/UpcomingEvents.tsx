@@ -26,10 +26,19 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
 
   return (
     <section className="mb-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+       <div className={`gap-4 ${
+        filteredEvents.length <= 2 
+          ? 'flex justify-center flex-wrap' 
+          : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+      }`}>
         {filteredEvents.map((event, index) => (
           event.link ? (
-            <Link key={index} href={event.link}>
+            <Link 
+              key={index} 
+              href={event.link}
+              target={event.link.startsWith('http') ? '_blank' : undefined}
+              rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+            >
               {renderEventCard(index, event)}
             </Link>
           ) : (
