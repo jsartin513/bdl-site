@@ -3,13 +3,13 @@ import Image from "next/image";
 export default function NextSeason() {
   return (
     <main className="p-8 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold text-center mb-8">Remix League - Guidelines</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">End of Summer Remix League - Guidelines</h1>
 
       {/* League Guidelines Image */}
       <div className="text-center mb-8">
         <Image
           src="/images/bdl_logo.png"
-          alt="League Lo  go"
+          alt="League Logo"
           width={500}
           height={300}
           className="mx-auto"
@@ -21,41 +21,46 @@ export default function NextSeason() {
         <h2 className="text-2xl font-bold mb-4">League Details</h2>
         <ul className="list-disc pl-5">
           <li>
-            <strong>Format:</strong> BYO Team League (Join in teams - maximum of 7 teams), mixed 6v6
+            <strong>Format:</strong> Remix League (Individual registration - teams will be formed by the league), mixed 6v6
           </li>
           <li>
-            <strong>Location:</strong> Albert F. Argenziano School (290 Washington St, Somerville, MA 02143, <strong>DOOR 10</strong>)
+            <strong>Location:</strong> Shady Hill School (bigger venue!)
           </li>
           <li>
-            <strong>Time:</strong> 7:00-9:30pm; doors open at 6:30pm
+            <strong>Time:</strong> Evening games (specific times TBA)
           </li>
           <li>
-            <strong>Cost:</strong> $80/player (Venmo @bostondodgeballleague)
+            <strong>Cost:</strong> $80/player
           </li>
           <li>
-            <strong>Dates:</strong> Begins 6/4 (playoffs 7/23)
+            <strong>Dates:</strong> 6 weeks + playoffs: August 6 - September 10, 2025, Playoffs September 17, 2025
           </li>
           <li>
-            <strong>Sponsor Bar:</strong> Remnant Brewing Satellite (877 Cambridge St, Cambridge MA 02141)
+            <strong>Player Cap:</strong> 96 players maximum
+          </li>
+          <li>
+            <strong>Sponsor Bar:</strong> Remnant Brewing (Satellite)
           </li>
           <li>
             <strong>League Rules:</strong> Found <a href="https://www.usadodgeball.com/rules" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline hover:text-blue-700">here</a> (exception: 2 female players on court instead of 3)
           </li>
           <li>
-            <strong>Ball Type:</strong> Foam; 10 games played per week (3-minute matches ending in untimed no-block)
+            <strong>Ball Type:</strong> Foam; More games per week with the bigger venue!
           </li>
         </ul>
       </section>
 
       {/* Policies */}
       <section className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Policies</h2>
+        <h2 className="text-2xl font-bold mb-4">Remix League Policies</h2>
         <ul className="list-disc pl-5">
-          <li>Groups/teams who do not meet the on-court minimum may have free agents added to their roster (with the exception of playoffs week).</li>
-          <li>Each team must have at least 3 rostered players for points to count, otherwise the game(s) result in a forfeit.</li>
-          <li>Teams who wish to find their own substitute player (drop-in player) may do so at any point during the league for $5/night per drop-in player (with the exception of playoffs week). Please inform the league manager.</li>
+          <li>Teams will be formed by the league organizers to ensure balanced and competitive play.</li>
+          <li>Individual players register and are assigned to teams based on skill level and availability.</li>
+          <li>Each team must have at least 3 players present for games to count, otherwise the game(s) result in a forfeit.</li>
+          <li>Substitute players may be available through the league if teams are short players.</li>
           <li>All schedules, times, and locations are subject to change.</li>
-          <li>All teams make playoffs. Playoffs are double-elimination, best of 3 (3-minute timed matches ending in no-blocking). Only rostered players can play during playoffs - no substitutions allowed.</li>
+          <li>Playoff format will be announced once the regular season begins.</li>
+          <li>96 player cap - registration closes when full!</li>
         </ul>
       </section>
 
