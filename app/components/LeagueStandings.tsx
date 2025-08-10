@@ -34,36 +34,49 @@ export default function LeagueStandings({
   useEffect(() => {
     async function fetchStandings() {
       try {
+        console.log('Fetching from URL:', PUBLIC_URL);
         const response = await fetch(PUBLIC_URL);
+        console.log('Response status:', response.status);
+        
         if (!response.ok) {
-          throw new Error("Standings data not found");
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
+        
         const text = await response.text();
+        console.log('Raw response:', text.substring(0, 200)); // Log first 200 chars
+        
         const json: GoogleSheetResponse = JSON.parse(
           text.substring(47, text.length - 2)
         );
+
+        console.log('Parsed JSON:', json);
 
         // Only process the specified number of rows
         const rows = json.table.rows.slice(0, maxRows);
         
         const teamRows = rows.filter(
           (row) =>
-            row.c[1] &&
-            typeof row.c[1].v === "string" &&
-            row.c[1].v !== "Week #" &&
-            row.c[1].v !== "Team Name"
+            row.c[0] &&
+            typeof row.c[0].v === "string" &&
+            row.c[0].v !== "Week #" &&
+            row.c[0].v !== "Week # " &&
+            row.c[0].v !== "Team Name"
         );
 
-        // Map to { team, wins } and limit to specified number of teams
+        console.log('Filtered team rows:', teamRows);
+
+        // Map to { team, wins } - team names in column A (index 0), wins in column B (index 1)
         const standingsData = teamRows
           .map((row) => ({
-            team: String(row.c[1]?.v ?? ""),
-            wins: Number(row.c[2]?.v ?? 0),
+            team: String(row.c[0]?.v ?? ""),
+            wins: Number(row.c[1]?.v ?? 0),
           }))
           .slice(0, maxTeams);
 
+        console.log('Final standings data:', standingsData);
         setStandings(standingsData);
       } catch (err) {
+        console.error('Error fetching standings:', err);
         setError(err instanceof Error ? err.message : "Unknown error");
       }
     }
