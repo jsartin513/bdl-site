@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import LeagueStandings from "@/app/components/LeagueStandings";
+import LeagueTeams from "@/app/components/LeagueTeams";
 
 export default function RemixLeaguePage() {
   const remixLeagueDetails = {
@@ -16,6 +16,11 @@ export default function RemixLeaguePage() {
     sheetName: "League Standings",
     maxTeams: 7, 
     maxRows: 20, // Adjust as needed
+  };
+
+  const teamsConfig = {
+    spreadsheetId: "1OD8KeIwdX1PJs3I4io3w-8itia0Q7y3qO1AmAwO2tHo",
+    sheetNames: ["Sheet1"], // We'll need to update this based on actual sheet names
   };
 
   return (
@@ -88,15 +93,12 @@ export default function RemixLeaguePage() {
           </section>
         </div>
 
-        {/* Right Column: Flyer Image */}
+        {/* Right Column: Teams */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">League Info</h2>
-          <Image
-            src="/images/end_of_summer_2025_league_flyer.jpeg"
-            alt="End of Summer Remix League Flyer"
-            className="rounded-lg shadow-md max-w-full h-auto"
-            width={600}
-            height={800}
+          <h2 className="text-2xl font-bold mb-4 text-center text-yellow-200">Teams</h2>
+          <LeagueTeams
+            spreadsheetId={teamsConfig.spreadsheetId}
+            sheetNames={teamsConfig.sheetNames}
           />
         </div>
       </div>
