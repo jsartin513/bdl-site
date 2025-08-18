@@ -5,11 +5,16 @@ import PastEvents from '../components/PastEvents';
 export default function Events() {
   const upcomingEvents = [
     {
-      description: 'End of Summer Remix League - 6 weeks + playoffs! August 6 - September 10, with playoffs on September 17. 96 player cap, bigger venue (Shady Hill), more games! $80/person. Click to register!',
+      description: 'End of Summer Remix League - Currently in progress with playoffs on September 17!',
       image: '/images/end_of_summer_2025_league_flyer.jpeg',
       start_date: new Date('2025-07-06'),
       end_date: new Date('2025-09-17'),
-      link: 'https://forms.gle/RF8DrYWjSLBJCjkj8',
+    },
+    {
+      description: '2025 Fall League - Wednesdays, 6 weeks + playoffs! Registration opens TBD. League starts in September.',
+      image: '/images/fall_league.jpg',
+      start_date: new Date('2025-08-18'),
+      end_date: new Date('2025-11-30'),
     },
   ];
 

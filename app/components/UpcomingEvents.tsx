@@ -32,18 +32,19 @@ export default function UpcomingEvents({ events }: UpcomingEventsProps) {
           : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
       }`}>
         {filteredEvents.map((event, index) => (
-          event.link ? (
-            <Link 
-              key={index} 
-              href={event.link}
-              target={event.link.startsWith('http') ? '_blank' : undefined}
-              rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-            >
-              {renderEventCard(index, event)}
-            </Link>
-          ) : (
-            renderEventCard(index, event)
-          )
+          <div key={index} className={filteredEvents.length <= 2 ? 'flex-shrink-0 max-w-md' : ''}>
+            {event.link ? (
+              <Link 
+                href={event.link}
+                target={event.link.startsWith('http') ? '_blank' : undefined}
+                rel={event.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                {renderEventCard(index, event)}
+              </Link>
+            ) : (
+              renderEventCard(index, event)
+            )}
+          </div>
         ))}
       </div>
     </section>
